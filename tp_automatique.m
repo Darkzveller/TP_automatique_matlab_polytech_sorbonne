@@ -20,7 +20,7 @@ betab=hb*S/mb/cb;
 sigmab=alphab+betab;
 Kt=0.05;
 Ka=2.5;
-%% Premiere Partie
+% Premiere Partie
 % Question 1
 p = tf('p');
 Ge = (2*alphas*betab)/(p^2+(sigmas+sigmab)*p+sigmas*sigmab-betas*betab);
