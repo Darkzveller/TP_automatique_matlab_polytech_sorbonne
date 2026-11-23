@@ -32,4 +32,57 @@ T = K0*Ka*Kt*Ge;
 
 % Question 3
 F = feedback(T,1);
-F
+% F
+
+% Question 4 
+[Gm, Pm, Wcg, Wcp] = margin(T);
+% Gm
+% Pm
+% Wcg
+% Wcp
+% grid on;
+
+% Question 5 
+step(5*F,600);
+% grid on;
+
+% Consigne de température
+consigne = 5;
+
+% Valeur finale de la sortie
+theta_final = dcgain(F) * consigne;
+
+% Erreur de position en Kelvin
+erreur = consigne - theta_final;
+
+% Erreur de position en pourcentage
+erreur_pourcent = (erreur / consigne) * 100;
+
+% Affichage des résultats
+fprintf('Température finale : %.4f K\n', theta_final);
+fprintf('Erreur de position : %.4f K\n', erreur);
+fprintf('Erreur de position : %.2f %%\n', erreur_pourcent);
+
+
+% Question 6
+erreur = 0.05; % Erreur relative souhaitée : 5 %
+
+K5 = (1/erreur - 1) / dcgain(Ka*Kt*Ge);
+
+T5 = K5*Ka*Kt*Ge;
+F5 = feedback(T5,1);
+
+% Affichage du gain calculé
+fprintf('K5 : %.4f \n', K5);
+% Réponse à un échelon de 5 K
+step(5*F5,600);
+% grid on;
+
+% Question 7 
+
+nyquist(T5);
+% grid on;
+
+% Question 8 
+margin(T5);
+grid on;
