@@ -40,11 +40,12 @@ F = feedback(T,1);
 % Pm
 % Wcg
 % Wcp
-% grid on;
-
+margin(T);
+grid on;
+%%
 % Question 5 
 step(5*F,600);
-% grid on;
+grid on;
 
 % Consigne de température
 consigne = 5;
@@ -76,12 +77,12 @@ F5 = feedback(T5,1);
 fprintf('K5 : %.4f \n', K5);
 % Réponse à un échelon de 5 K
 step(5*F5,600);
-% grid on;
+grid on;
 
 % Question 7 
 
 nyquist(T5);
-% grid on;
+grid on;
 
 % Question 8 
 margin(T5);
