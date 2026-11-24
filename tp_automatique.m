@@ -87,3 +87,14 @@ grid on;
 % Question 8 
 margin(T5);
 grid on;
+
+
+
+
+%% Troisième partie - Question 5 : PID Tuner
+
+% Système à réguler, vu par le correcteur PID
+G_pid = Ka * Ge * Kt;
+
+% Ouvrir l'application PID Tuner
+pidTuner(G_pid, 'PIDF');
